@@ -34,6 +34,12 @@ int main(int argc, const char * argv[])
         BNRItem *item = [[BNRItem alloc] initWithItemName:@"Red Corvette"
                                            valueInDollars:10000 serialNumber:@"A1B1234"];
         
+        BNRItem *itemWithName = [[BNRItem alloc]initWithItemName:@"Blue angel jet"];
+        NSLog(@"%@", itemWithName);
+        
+        BNRItem *itemWithNoName = [[BNRItem alloc] init];
+        NSLog(@"%@", itemWithNoName);
+        
         NSLog(@"%@", item);
         
         
