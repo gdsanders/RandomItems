@@ -33,6 +33,20 @@
     return self;
 }
 
+
+- (instancetype)initWithItemName:(NSString *)name
+{
+    return [self initWithItemName:name
+                    valueInDollars:0
+                     serialNumber:@""];
+}
+
+- (instancetype)init{
+    return [self initWithItemName:@"Item"];
+}
+
+// Class method
+
 + (instancetype)randomItem
 {
     // Create an immutable array of three adjectives
@@ -57,16 +71,7 @@
     return newItem;
 }
 
-- (instancetype)initWithItemName:(NSString *)name
-{
-    return [self initWithItemName:name
-                    valueInDollars:0
-                     serialNumber:@""];
-}
-
-- (instancetype)init{
-    return [self initWithItemName:@"Item"];
-}
+// Instance methods
 
 - (void)setItemName:(NSString *)str
 {
@@ -103,6 +108,30 @@
     return _dateCreated;
 }
 
+- (void)setContainedItem:(BNRItem *)item
+{
+    _containedItem = item;
+    
+    // When given an item to contain, the contained item will be given a pointer to its container
+    
+    item.container = self;
+}
+
+- (BNRItem *)containedItem
+{
+    return _containedItem;
+}
+
+- (void)setContainer:(BNRItem *)item
+{
+    _container = item;
+}
+
+- (BNRItem *)container
+{
+    return _container;
+}
+
 - (NSString *)description
 {
     NSString *descriptionString = [[NSString alloc]initWithFormat:@"%@ (%@) : Worth $%d, recorded on %@",
@@ -111,6 +140,11 @@
                                    self.valueInDollars,
                                    self.dateCreated];
     return descriptionString;
+}
+
+- (void)dealloc
+{
+    NSLog(@"Destroyed: %@", self);
 }
 
 @end
