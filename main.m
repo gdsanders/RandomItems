@@ -31,14 +31,11 @@ int main(int argc, const char * argv[])
             NSLog(@"%@", item);
         }
         
-        BNRItem *item = [[BNRItem alloc] init];
+        BNRItem *item = [[BNRItem alloc] initWithItemName:@"Red Corvette"
+                                           valueInDollars:10000 serialNumber:@"A1B1234"];
         
-        item.serialNumber = @"AC1234";
-        item.itemName = @"Red Corvette";
-        item.valueInDollars = 100;
-               
-        // Old code - NSLog(@"%@ %@ %@ %d", [item itemName], [item dateCreated], [item serialNumber], [item valueInDollars]);
         NSLog(@"%@", item);
+        
         
         
         // Destroy the mutable array object
