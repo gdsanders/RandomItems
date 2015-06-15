@@ -33,6 +33,30 @@
     return self;
 }
 
++ (instancetype)randomItem
+{
+    // Create an immutable array of three adjectives
+    NSArray *randomAdjectiveList = @[@"Fred", @"Wilma", @"Barney"];
+    
+    // Create a mutable array of three nouns
+    NSArray *randomNounList = @[@"Tiger", @"Grizzly", @"Black Mamba"];
+    
+    // Get the index of a random adjective/noun from the lists
+    NSInteger adjectiveIndex = arc4random() % [randomAdjectiveList count];
+    NSInteger nounIndex = arc4random() % [randomNounList count];
+    
+    NSString *randomName = [NSString stringWithFormat:@"%@ %@", [randomAdjectiveList objectAtIndex:adjectiveIndex], [randomNounList objectAtIndex:nounIndex]];
+    
+    int randomValue = arc4random() % 100;
+    
+    NSString *randomSerialNumber = [NSString stringWithFormat:@"%c%c%c%c%c", '0' + arc4random() % 10, 'A' + arc4random() % 26, '0' + arc4random() % 10, 'A' + arc4random() % 26, '0' + arc4random() % 10];
+    
+    BNRItem *newItem = [[self alloc] initWithItemName:randomName
+                                       valueInDollars:randomValue serialNumber:randomSerialNumber];
+    
+    return newItem;
+}
+
 - (instancetype)initWithItemName:(NSString *)name
 {
     return [self initWithItemName:name

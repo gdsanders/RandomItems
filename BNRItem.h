@@ -11,11 +11,18 @@
 @interface BNRItem : NSObject
 
 {
+    
+    // Instance variables
+    
     NSString *_itemName;
     NSString *_serialNumber;
     int _valueInDollars;
     NSDate *_dateCreated;
 }
+
+// Class methods
+
++ (instancetype)randomItem;
 
 // Designated initializer for BNRItem
 - (instancetype)initWithItemName:(NSString *)name
@@ -23,6 +30,8 @@
                     serialNumber:(NSString *)sNumber;
 
 - (instancetype)initWithItemName:(NSString *)name;
+
+// Instance methods
 
 - (void)setItemName:(NSString *)str;
 -(NSString *)itemName;
