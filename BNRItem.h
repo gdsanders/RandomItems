@@ -10,18 +10,14 @@
 
 @interface BNRItem : NSObject
 
-{
-    
-    // Instance variables
-    
-    NSString *_itemName;
-    NSString *_serialNumber;
-    int _valueInDollars;
-    NSDate *_dateCreated;
-    
-    BNRItem *_containedItem;
-    __weak BNRItem *_container;
-}
+@property BNRItem *containedItem;
+@property BNRItem *container;
+
+@property NSString *itemName;
+@property NSString *serialNumber;
+@property int valueInDollars;
+@property NSDate *dateCreated;
+
 
 // Class methods
 
@@ -34,27 +30,7 @@
 
 - (instancetype)initWithItemName:(NSString *)name;
 
-// Instance methods
 
-- (void)setContainedItem:(BNRItem *)item;
-- (BNRItem *)containedItem;
-
-- (void)setContainer:(BNRItem *)item;
-- (BNRItem *)container;
-
-
-
-
-- (void)setItemName:(NSString *)str;
--(NSString *)itemName;
-
-- (void)setSerialNumber:(NSString *)str;
-- (NSString *)serialNumber;
-
-- (void)setValueInDollars:(int)v;
--(int)valueInDollars;
-
--(NSDate *)dateCreated;
 
 
 @end
